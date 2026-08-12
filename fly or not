@@ -1,0 +1,204 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMzdz2PNkOE2wPs6gxF4x8F",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/fly%20or%20not\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DIFZdR9oXy7P",
+        "outputId": "8ae6489d-5141-46fc-ebe5-d44fdae2832c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter bird name: eagle\n",
+            "eagle can fly\n"
+          ]
+        }
+      ],
+      "source": [
+        "bird = input(\"Enter bird name: \").lower()\n",
+        "\n",
+        "birds = [\n",
+        "    \"sparrow\", \"eagle\", \"parrot\", \"pigeon\", \"crow\",\n",
+        "    \"owl\", \"hawk\", \"falcon\", \"dove\", \"peacock\",\n",
+        "    \"duck\", \"goose\", \"swan\", \"hen\", \"rooster\",\n",
+        "    \"penguin\", \"ostrich\", \"emu\", \"kiwi\", \"cassowary\",\n",
+        "    \"turkey\", \"flamingo\", \"seagull\", \"woodpecker\",\n",
+        "    \"kingfisher\", \"hummingbird\", \"parakeet\", \"canary\",\n",
+        "    \"robin\", \"magpie\", \"raven\", \"vulture\", \"pelican\"\n",
+        "]\n",
+        "\n",
+        "flightless = [\n",
+        "    \"penguin\", \"ostrich\", \"emu\", \"kiwi\", \"cassowary\",\n",
+        "    \"turkey\", \"hen\", \"rooster\", \"peacock\"\n",
+        "]\n",
+        "\n",
+        "if bird not in birds:\n",
+        "    print(bird, \"is not a bird\")\n",
+        "elif bird in flightless:\n",
+        "    print(bird, \"cannot fly\")\n",
+        "else:\n",
+        "    print(bird, \"can fly\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "family = {\n",
+        "    \"father\": {\"arun\": \"ravi\"},\n",
+        "    \"mother\": {\"meena\": \"ravi\"},\n",
+        "    \"parent\": {\n",
+        "        \"arun\": [\"ravi\", \"kiran\"],\n",
+        "        \"meena\": [\"ravi\", \"kiran\"],\n",
+        "        \"ravi\": [\"ajay\", \"sita\"],\n",
+        "        \"kiran\": [\"rahul\"]\n",
+        "    }\n",
+        "}\n",
+        "\n",
+        "person1 = input(\"Enter first person: \").lower()\n",
+        "person2 = input(\"Enter second person: \").lower()\n",
+        "\n",
+        "if person2 in family[\"parent\"].get(person1, []):\n",
+        "    print(person1, \"is the parent of\", person2)\n",
+        "\n",
+        "elif person1 in family[\"parent\"].get(person2, []):\n",
+        "    print(person1, \"is the child of\", person2)\n",
+        "\n",
+        "else:\n",
+        "    print(\"Relationship not found\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MTAFZtIyYB9q",
+        "outputId": "1cfbe18e-3415-4aac-a376-9f3203c7422f"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter first person: ravi\n",
+            "Enter second person: kiran\n",
+            "Relationship not found\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "family = {\n",
+        "    \"arun\": {\"gender\": \"male\", \"parent\": [\"ravi\", \"meena\"]},\n",
+        "    \"kiran\": {\"gender\": \"female\", \"parent\": [\"ravi\", \"meena\"]},\n",
+        "    \"ajay\": {\"gender\": \"male\", \"parent\": [\"arun\", \"sita\"]},\n",
+        "    \"rahul\": {\"gender\": \"male\", \"parent\": [\"arun\", \"sita\"]},\n",
+        "    \"sita\": {\"gender\": \"female\", \"parent\": [\"kumar\", \"lakshmi\"]},\n",
+        "    \"ravi\": {\"gender\": \"male\", \"parent\": [\"kumar\", \"lakshmi\"]},\n",
+        "    \"meena\": {\"gender\": \"female\", \"parent\": [\"ram\", \"geetha\"]}\n",
+        "}\n",
+        "\n",
+        "\n",
+        "def relation(a, b):\n",
+        "\n",
+        "    # Parent\n",
+        "    if a in family and b in family[a][\"parent\"]:\n",
+        "        if family[a][\"gender\"] == \"male\":\n",
+        "            return \"father\"\n",
+        "        return \"mother\"\n",
+        "\n",
+        "    # Child\n",
+        "    if b in family and a in family[b][\"parent\"]:\n",
+        "        if family[a][\"gender\"] == \"male\":\n",
+        "            return \"son\"\n",
+        "        return \"daughter\"\n",
+        "\n",
+        "    # Sibling\n",
+        "    if a in family and b in family:\n",
+        "        parents_a = set(family[a][\"parent\"])\n",
+        "        parents_b = set(family[b][\"parent\"])\n",
+        "\n",
+        "        if parents_a & parents_b:\n",
+        "            if family[a][\"gender\"] == \"male\":\n",
+        "                return \"brother\"\n",
+        "            return \"sister\"\n",
+        "\n",
+        "    # Grandparent\n",
+        "    if a in family and b in family:\n",
+        "        for parent in family[b][\"parent\"]:\n",
+        "            if parent in family and a in family[parent][\"parent\"]:\n",
+        "                if family[a][\"gender\"] == \"male\":\n",
+        "                    return \"grandfather\"\n",
+        "                return \"grandmother\"\n",
+        "\n",
+        "    # Grandchild\n",
+        "    if a in family and b in family:\n",
+        "        for parent in family[a][\"parent\"]:\n",
+        "            if parent in family and b in family[parent][\"parent\"]:\n",
+        "                if family[a][\"gender\"] == \"male\":\n",
+        "                    return \"grandson\"\n",
+        "                return \"granddaughter\"\n",
+        "\n",
+        "    return \"Relationship not found\"\n",
+        "\n",
+        "\n",
+        "person1 = input(\"Enter first person: \").lower()\n",
+        "person2 = input(\"Enter second person: \").lower()\n",
+        "\n",
+        "print(person1, \"is the\", relation(person1, person2), \"of\", person2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yN6pRzqEZ5zT",
+        "outputId": "5ff8f8a3-161b-45fb-db38-1f130785ce0d"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter first person: meena\n",
+            "Enter second person: ajay\n",
+            "meena is the grandmother of ajay\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
