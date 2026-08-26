@@ -1,0 +1,74 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNnqjgUmAypMNUh4gP2NkGI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-6\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 9,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b-JQh11zDW67",
+        "outputId": "4b4fc372-e288-4847-e818-fd9b2dd53e0c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "After Add: [10, 15, 20, 30]\n",
+            "After Append: [10, 15, 20, 30, 40]\n",
+            "After Extend: [10, 15, 20, 30, 40, 50, 60]\n",
+            "After Delete: [10, 15, 30, 40, 50, 60]\n"
+          ]
+        }
+      ],
+      "source": [
+        "# List Methods: Add, Append, Extend and Delete\n",
+        "\n",
+        "L = [10, 20, 30]\n",
+        "\n",
+        "# Add\n",
+        "L.insert(1, 15)\n",
+        "print(\"After Add:\", L)\n",
+        "\n",
+        "# Append\n",
+        "L.append(40)\n",
+        "print(\"After Append:\", L)\n",
+        "\n",
+        "# Extend\n",
+        "L.extend([50, 60])\n",
+        "print(\"After Extend:\", L)\n",
+        "\n",
+        "# Delete\n",
+        "L.remove(20)\n",
+        "print(\"After Delete:\", L)"
+      ]
+    }
+  ]
+}
