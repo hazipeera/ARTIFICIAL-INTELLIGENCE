@@ -1,0 +1,85 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMWrsuf7ly4WR488dUraS66",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b-JQh11zDW67",
+        "outputId": "420f98ab-3feb-45bc-b0a7-d4cfdc9ac48f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter number of rows: 2\n",
+            "Enter number of columns: 2\n",
+            "Enter elements of Matrix A:\n",
+            "1 2\n",
+            "3 4\n",
+            "Enter elements of Matrix B:\n",
+            "5 6\n",
+            "7 8\n",
+            "Sum of two matrices:\n",
+            "6 8\n",
+            "10 12\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Add Two Matrices\n",
+        "\n",
+        "r = int(input(\"Enter number of rows: \"))\n",
+        "c = int(input(\"Enter number of columns: \"))\n",
+        "\n",
+        "A = []\n",
+        "B = []\n",
+        "\n",
+        "print(\"Enter elements of Matrix A:\")\n",
+        "for i in range(r):\n",
+        "    row = list(map(int, input().split()))\n",
+        "    A.append(row)\n",
+        "\n",
+        "print(\"Enter elements of Matrix B:\")\n",
+        "for i in range(r):\n",
+        "    row = list(map(int, input().split()))\n",
+        "    B.append(row)\n",
+        "\n",
+        "C = [[A[i][j] + B[i][j] for j in range(c)] for i in range(r)]\n",
+        "\n",
+        "print(\"Sum of two matrices:\")\n",
+        "for row in C:\n",
+        "    print(*row)"
+      ]
+    }
+  ]
+}
