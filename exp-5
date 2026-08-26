@@ -1,0 +1,91 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNVoWYLSRa77Bepd2xPjCjo",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-5\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b-JQh11zDW67",
+        "outputId": "6bae7e0e-b3b3-4885-97c3-2d8521c99527"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Nested List: [1, 2, [3, 4], 5]\n",
+            "Length: 5\n",
+            "Concatenation: [10, 20, 30, 40, 50, 60, 70]\n",
+            "30 in List: True\n",
+            "Iteration:\n",
+            "10\n",
+            "20\n",
+            "30\n",
+            "40\n",
+            "50\n",
+            "Element at index 2: 30\n",
+            "Slicing: [20, 30, 40]\n"
+          ]
+        }
+      ],
+      "source": [
+        "# List Operations\n",
+        "\n",
+        "L = [10, 20, 30, 40, 50]\n",
+        "\n",
+        "# Nested List\n",
+        "nested = [1, 2, [3, 4], 5]\n",
+        "print(\"Nested List:\", nested)\n",
+        "\n",
+        "# Length\n",
+        "print(\"Length:\", len(L))\n",
+        "\n",
+        "# Concatenation\n",
+        "L2 = [60, 70]\n",
+        "print(\"Concatenation:\", L + L2)\n",
+        "\n",
+        "# Membership\n",
+        "print(\"30 in List:\", 30 in L)\n",
+        "\n",
+        "# Iteration\n",
+        "print(\"Iteration:\")\n",
+        "for x in L:\n",
+        "    print(x)\n",
+        "\n",
+        "# Indexing\n",
+        "print(\"Element at index 2:\", L[2])\n",
+        "\n",
+        "# Slicing\n",
+        "print(\"Slicing:\", L[1:4])"
+      ]
+    }
+  ]
+}
