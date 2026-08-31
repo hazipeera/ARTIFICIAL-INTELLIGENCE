@@ -1,0 +1,115 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP0xufL8N5XgbYovfgyZoZv",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 17,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "1495e33c-ee52-4139-b6ab-5b62e7d686db"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Map Coloring Solution:\n",
+            "WA : Red\n",
+            "NT : Green\n",
+            "SA : Blue\n",
+            "Q : Red\n",
+            "NSW : Green\n",
+            "V : Red\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Map Coloring using CSP\n",
+        "\n",
+        "# Map of Australia\n",
+        "regions = {\n",
+        "    'WA': ['NT', 'SA'],\n",
+        "    'NT': ['WA', 'SA', 'Q'],\n",
+        "    'SA': ['WA', 'NT', 'Q', 'NSW', 'V'],\n",
+        "    'Q': ['NT', 'SA', 'NSW'],\n",
+        "    'NSW': ['Q', 'SA', 'V'],\n",
+        "    'V': ['SA', 'NSW'],\n",
+        "}\n",
+        "\n",
+        "# Available colors\n",
+        "colors = ['Red', 'Green', 'Blue']\n",
+        "\n",
+        "# Store assigned colors\n",
+        "assignment = {}\n",
+        "\n",
+        "\n",
+        "def is_safe(region, color):\n",
+        "    for neighbour in regions[region]:\n",
+        "        if neighbour in assignment and assignment[neighbour] == color:\n",
+        "            return False\n",
+        "    return True\n",
+        "\n",
+        "\n",
+        "def solve():\n",
+        "    # All regions are colored\n",
+        "    if len(assignment) == len(regions):\n",
+        "        return True\n",
+        "\n",
+        "    # Select an uncolored region\n",
+        "    for region in regions:\n",
+        "        if region not in assignment:\n",
+        "            break\n",
+        "\n",
+        "    # Try each color\n",
+        "    for color in colors:\n",
+        "        if is_safe(region, color):\n",
+        "            assignment[region] = color\n",
+        "\n",
+        "            if solve():\n",
+        "                return True\n",
+        "\n",
+        "            # Backtrack\n",
+        "            del assignment[region]\n",
+        "\n",
+        "    return False\n",
+        "\n",
+        "\n",
+        "# Solve the CSP\n",
+        "if solve():\n",
+        "    print(\"Map Coloring Solution:\")\n",
+        "    for region in regions:\n",
+        "        print(region, \":\", assignment[region])\n",
+        "else:\n",
+        "    print(\"No solution exists.\")"
+      ]
+    }
+  ]
+}
