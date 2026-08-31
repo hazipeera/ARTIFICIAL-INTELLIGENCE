@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMhp3VAW6ifQjuzdJZocnmW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-16\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 12,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "afc113ee-b622-4997-c67d-fc6f944e5e1e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "BFS Traversal:\n",
+            "A B C D E F "
+          ]
+        }
+      ],
+      "source": [
+        "from collections import deque\n",
+        "\n",
+        "# Graph\n",
+        "graph = {\n",
+        "    'A': ['B', 'C'],\n",
+        "    'B': ['D', 'E'],\n",
+        "    'C': ['F'],\n",
+        "    'D': [],\n",
+        "    'E': [],\n",
+        "    'F': []\n",
+        "}\n",
+        "\n",
+        "def bfs(start):\n",
+        "    visited = set()\n",
+        "    queue = deque([start])\n",
+        "\n",
+        "    while queue:\n",
+        "        node = queue.popleft()\n",
+        "\n",
+        "        if node not in visited:\n",
+        "            print(node, end=\" \")\n",
+        "            visited.add(node)\n",
+        "\n",
+        "            for neighbour in graph[node]:\n",
+        "                if neighbour not in visited:\n",
+        "                    queue.append(neighbour)\n",
+        "\n",
+        "\n",
+        "# BFS traversal\n",
+        "print(\"BFS Traversal:\")\n",
+        "bfs('A')"
+      ]
+    }
+  ]
+}
