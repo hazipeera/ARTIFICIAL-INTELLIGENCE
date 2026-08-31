@@ -1,0 +1,100 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOLkZvD/UCZXK2RGm+tlZBB",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YMl8Mu--AvlE",
+        "outputId": "8f677671-706b-45a2-9792-ef7fd9b249a7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Input\tOutput\n",
+            "[0, 0] \t 0\n",
+            "[0, 1] \t 0\n",
+            "[1, 0] \t 0\n",
+            "[1, 1] \t 0\n",
+            "\n",
+            "Input: [[1, 1]]\n",
+            "Predicted Output: 0\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Feed Forward Neural Network\n",
+        "\n",
+        "from sklearn.neural_network import MLPClassifier\n",
+        "\n",
+        "# Training data\n",
+        "X = [\n",
+        "    [0, 0],\n",
+        "    [0, 1],\n",
+        "    [1, 0],\n",
+        "    [1, 1]\n",
+        "]\n",
+        "\n",
+        "# Target output (AND gate)\n",
+        "y = [0, 0, 0, 1]\n",
+        "\n",
+        "# Create Feed Forward Neural Network\n",
+        "model = MLPClassifier(\n",
+        "    hidden_layer_sizes=(4,),\n",
+        "    activation='relu',\n",
+        "    solver='lbfgs',\n",
+        "    max_iter=1000,\n",
+        "    random_state=1\n",
+        ")\n",
+        "\n",
+        "# Train the network\n",
+        "model.fit(X, y)\n",
+        "\n",
+        "# Test the network\n",
+        "predictions = model.predict(X)\n",
+        "\n",
+        "print(\"Input\\tOutput\")\n",
+        "\n",
+        "for i in range(len(X)):\n",
+        "    print(X[i], \"\\t\", predictions[i])\n",
+        "\n",
+        "# Test a new input\n",
+        "new_input = [[1, 1]]\n",
+        "result = model.predict(new_input)\n",
+        "\n",
+        "print(\"\\nInput:\", new_input)\n",
+        "print(\"Predicted Output:\", result[0])"
+      ]
+    }
+  ]
+}
