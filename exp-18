@@ -1,0 +1,96 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNvwkolY0597oaJzYbqy/xt",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-18\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 15,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "dedcd9fd-b2ea-4d17-86ac-39afbe355c72"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Best Route: 1 2 4 3 1 \n",
+            "Minimum Cost: 80\n"
+          ]
+        }
+      ],
+      "source": [
+        "from itertools import permutations\n",
+        "\n",
+        "# Distance matrix\n",
+        "graph = [\n",
+        "    [0, 10, 15, 20],\n",
+        "    [10, 0, 35, 25],\n",
+        "    [15, 35, 0, 30],\n",
+        "    [20, 25, 30, 0]\n",
+        "]\n",
+        "\n",
+        "n = len(graph)\n",
+        "\n",
+        "# Starting city\n",
+        "start = 0\n",
+        "\n",
+        "# Generate all possible routes\n",
+        "cities = list(range(1, n))\n",
+        "\n",
+        "min_cost = float('inf')\n",
+        "best_route = None\n",
+        "\n",
+        "for route in permutations(cities):\n",
+        "    current = start\n",
+        "    cost = 0\n",
+        "\n",
+        "    for city in route:\n",
+        "        cost += graph[current][city]\n",
+        "        current = city\n",
+        "\n",
+        "    # Return to starting city\n",
+        "    cost += graph[current][start]\n",
+        "\n",
+        "    if cost < min_cost:\n",
+        "        min_cost = cost\n",
+        "        best_route = (start,) + route + (start,)\n",
+        "\n",
+        "# Display result\n",
+        "print(\"Best Route:\", end=\" \")\n",
+        "\n",
+        "for city in best_route:\n",
+        "    print(city + 1, end=\" \")\n",
+        "\n",
+        "print(\"\\nMinimum Cost:\", min_cost)"
+      ]
+    }
+  ]
+}
