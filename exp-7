@@ -1,0 +1,93 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNqF+qNLzlAlh9zUEiHLpSX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-7\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "769b8046-c228-46c2-d454-e7e800b2ee49"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Set A: {1, 2, 3, 4, 5}\n",
+            "Set B: {4, 5, 6, 7, 8}\n",
+            "Union: {1, 2, 3, 4, 5, 6, 7, 8}\n",
+            "Intersection: {4, 5}\n",
+            "Difference (A - B): {1, 2, 3}\n",
+            "Difference (B - A): {8, 6, 7}\n",
+            "Symmetric Difference: {1, 2, 3, 6, 7, 8}\n",
+            "3 in A: True\n",
+            "C is subset of A: True\n",
+            "A is superset of C: True\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Set Operations\n",
+        "\n",
+        "A = {1, 2, 3, 4, 5}\n",
+        "B = {4, 5, 6, 7, 8}\n",
+        "\n",
+        "print(\"Set A:\", A)\n",
+        "print(\"Set B:\", B)\n",
+        "\n",
+        "# Union\n",
+        "print(\"Union:\", A | B)\n",
+        "\n",
+        "# Intersection\n",
+        "print(\"Intersection:\", A & B)\n",
+        "\n",
+        "# Difference\n",
+        "print(\"Difference (A - B):\", A - B)\n",
+        "\n",
+        "# Difference\n",
+        "print(\"Difference (B - A):\", B - A)\n",
+        "\n",
+        "# Symmetric Difference\n",
+        "print(\"Symmetric Difference:\", A ^ B)\n",
+        "\n",
+        "# Membership\n",
+        "print(\"3 in A:\", 3 in A)\n",
+        "\n",
+        "# Subset\n",
+        "C = {1, 2}\n",
+        "print(\"C is subset of A:\", C.issubset(A))\n",
+        "\n",
+        "# Superset\n",
+        "print(\"A is superset of C:\", A.issuperset(C))"
+      ]
+    }
+  ]
+}
