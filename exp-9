@@ -1,0 +1,66 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNiS8pI9UKZsqA+OVQBAqcO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-9\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "e831618a-fcc7-4d40-8a56-f13ed0e778a7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a string: Enter a string: Hello, World! How are you?\n",
+            "String after removing punctuations: Enter a string Hello World How are you\n"
+          ]
+        }
+      ],
+      "source": [
+        "import string\n",
+        "\n",
+        "# Get string from the user\n",
+        "text = input(\"Enter a string: \")\n",
+        "\n",
+        "# Remove punctuation\n",
+        "result = \"\"\n",
+        "\n",
+        "for char in text:\n",
+        "    if char not in string.punctuation:\n",
+        "        result += char\n",
+        "\n",
+        "print(\"String after removing punctuations:\", result)"
+      ]
+    }
+  ]
+}
