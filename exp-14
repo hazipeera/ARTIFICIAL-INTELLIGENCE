@@ -1,0 +1,130 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOEbiQ8+sCai3Jfx36/mhdE",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-14\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 10,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "333ad79b-3589-4f26-ad0f-928c6000408d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Solution:\n",
+            "(3, 3, 0)\n",
+            "(3, 1, 1)\n",
+            "(3, 2, 0)\n",
+            "(3, 0, 1)\n",
+            "(3, 1, 0)\n",
+            "(1, 1, 1)\n",
+            "(2, 2, 0)\n",
+            "(0, 2, 1)\n",
+            "(0, 3, 0)\n",
+            "(0, 1, 1)\n",
+            "(1, 1, 0)\n",
+            "(0, 0, 1)\n"
+          ]
+        }
+      ],
+      "source": [
+        "from collections import deque\n",
+        "\n",
+        "# State: (missionaries_left, cannibals_left, boat_side)\n",
+        "# boat_side = 0 -> Left, 1 -> Right\n",
+        "\n",
+        "def is_valid(m, c):\n",
+        "    # Total number of missionaries and cannibals\n",
+        "    if m < 0 or c < 0 or m > 3 or c > 3:\n",
+        "        return False\n",
+        "\n",
+        "    # On the left side\n",
+        "    if m > 0 and m < c:\n",
+        "        return False\n",
+        "\n",
+        "    # On the right side\n",
+        "    mr = 3 - m\n",
+        "    cr = 3 - c\n",
+        "\n",
+        "    if mr > 0 and mr < cr:\n",
+        "        return False\n",
+        "\n",
+        "    return True\n",
+        "\n",
+        "\n",
+        "def solve():\n",
+        "    start = (3, 3, 0)\n",
+        "    goal = (0, 0, 1)\n",
+        "\n",
+        "    # Possible combinations in the boat\n",
+        "    moves = [\n",
+        "        (1, 0),  # 1 missionary\n",
+        "        (2, 0),  # 2 missionaries\n",
+        "        (0, 1),  # 1 cannibal\n",
+        "        (0, 2),  # 2 cannibals\n",
+        "        (1, 1)   # 1 missionary and 1 cannibal\n",
+        "    ]\n",
+        "\n",
+        "    queue = deque([(start, [start])])\n",
+        "    visited = {start}\n",
+        "\n",
+        "    while queue:\n",
+        "        state, path = queue.popleft()\n",
+        "        m, c, boat = state\n",
+        "\n",
+        "        if state == goal:\n",
+        "            print(\"Solution:\")\n",
+        "            for s in path:\n",
+        "                print(s)\n",
+        "            return\n",
+        "\n",
+        "        for dm, dc in moves:\n",
+        "\n",
+        "            if boat == 0:\n",
+        "                new_state = (m - dm, c - dc, 1)\n",
+        "            else:\n",
+        "                new_state = (m + dm, c + dc, 0)\n",
+        "\n",
+        "            if is_valid(new_state[0], new_state[1]):\n",
+        "                if new_state not in visited:\n",
+        "                    visited.add(new_state)\n",
+        "                    queue.append((new_state, path + [new_state]))\n",
+        "\n",
+        "    print(\"No solution exists.\")\n",
+        "\n",
+        "\n",
+        "solve()"
+      ]
+    }
+  ]
+}
