@@ -1,0 +1,98 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNgKdY8ive4URAVlObb6M5H",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-13\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 9,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "27a8019c-b254-462a-f1d9-bac5ec045e14"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Solution found:\n",
+            "S = 9\n",
+            "E = 5\n",
+            "N = 6\n",
+            "D = 7\n",
+            "M = 1\n",
+            "O = 0\n",
+            "R = 8\n",
+            "Y = 2\n",
+            "\n",
+            " 9567\n",
+            "+ 1085\n",
+            "------\n",
+            "10652\n"
+          ]
+        }
+      ],
+      "source": [
+        "from itertools import permutations\n",
+        "\n",
+        "# Crypt-Arithmetic: SEND + MORE = MONEY\n",
+        "\n",
+        "letters = \"SENDMORY\"\n",
+        "\n",
+        "for p in permutations(range(10), len(letters)):\n",
+        "    S, E, N, D, M, O, R, Y = p\n",
+        "\n",
+        "    # S and M cannot be zero\n",
+        "    if S == 0 or M == 0:\n",
+        "        continue\n",
+        "\n",
+        "    SEND = 1000*S + 100*E + 10*N + D\n",
+        "    MORE = 1000*M + 100*O + 10*R + E\n",
+        "    MONEY = 10000*M + 1000*O + 100*N + 10*E + Y\n",
+        "\n",
+        "    if SEND + MORE == MONEY:\n",
+        "        print(\"Solution found:\")\n",
+        "        print(\"S =\", S)\n",
+        "        print(\"E =\", E)\n",
+        "        print(\"N =\", N)\n",
+        "        print(\"D =\", D)\n",
+        "        print(\"M =\", M)\n",
+        "        print(\"O =\", O)\n",
+        "        print(\"R =\", R)\n",
+        "        print(\"Y =\", Y)\n",
+        "\n",
+        "        print(\"\\n\", SEND)\n",
+        "        print(\"+\", MORE)\n",
+        "        print(\"------\")\n",
+        "        print(MONEY)\n",
+        "        break"
+      ]
+    }
+  ]
+}
