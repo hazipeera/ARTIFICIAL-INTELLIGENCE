@@ -1,0 +1,100 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNfVnHt37zS+xNJqqxz5Olh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hazipeera/ARTIFICIAL-INTELLIGENCE/blob/main/exp-15\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 11,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VFUDhp04w68T",
+        "outputId": "bf98ed50-8a0d-408d-b514-eca9a7bf292f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter status of Room A (Clean/Dirty): Dirty\n",
+            "Enter status of Room B (Clean/Dirty): Dirty\n",
+            "Enter starting room (A/B): A\n",
+            "\n",
+            "Initial State: {'A': 'dirty', 'B': 'dirty'}\n",
+            "\n",
+            "Vacuum is in Room A\n",
+            "Action: Suck\n",
+            "\n",
+            "Vacuum is in Room A\n",
+            "Action: Move\n",
+            "\n",
+            "Vacuum is in Room B\n",
+            "Action: Suck\n",
+            "\n",
+            "All rooms are clean!\n",
+            "Final State: {'A': 'clean', 'B': 'clean'}\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Vacuum Cleaner Problem\n",
+        "\n",
+        "def vacuum_cleaner():\n",
+        "    room = {\n",
+        "        \"A\": input(\"Enter status of Room A (Clean/Dirty): \").lower(),\n",
+        "        \"B\": input(\"Enter status of Room B (Clean/Dirty): \").lower()\n",
+        "    }\n",
+        "\n",
+        "    current = input(\"Enter starting room (A/B): \").upper()\n",
+        "\n",
+        "    print(\"\\nInitial State:\", room)\n",
+        "\n",
+        "    while room[\"A\"] == \"dirty\" or room[\"B\"] == \"dirty\":\n",
+        "\n",
+        "        print(\"\\nVacuum is in Room\", current)\n",
+        "\n",
+        "        if room[current] == \"dirty\":\n",
+        "            print(\"Action: Suck\")\n",
+        "            room[current] = \"clean\"\n",
+        "        else:\n",
+        "            print(\"Action: Move\")\n",
+        "\n",
+        "            if current == \"A\":\n",
+        "                current = \"B\"\n",
+        "            else:\n",
+        "                current = \"A\"\n",
+        "\n",
+        "    print(\"\\nAll rooms are clean!\")\n",
+        "    print(\"Final State:\", room)\n",
+        "\n",
+        "\n",
+        "vacuum_cleaner()\n"
+      ]
+    }
+  ]
+}
